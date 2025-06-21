@@ -6,7 +6,7 @@ settings:
 
 dependencies:
   '@tailwindcss/vite':
-    specifier: ^4.1.4
+    specifier: ^4.1.7
     version: 4.1.7(vite@5.2.2)
   jquery:
     specifier: ^3.7.1
@@ -65,7 +65,7 @@ devDependencies:
     specifier: ^8.5.3
     version: 8.5.3
   tailwindcss:
-    specifier: ^4.1.4
+    specifier: ^4.1.7
     version: 4.1.7
   vite:
     specifier: ^5.2.0

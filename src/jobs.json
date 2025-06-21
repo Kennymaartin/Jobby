@@ -97,6 +97,20 @@
         "contactPhone": "08137563250",
         "contactEmail": "marteyenterprise@gmail.com"
       }
+    },
+    {
+      "id": "0525",
+      "description": "Testing Web3 Nodes before launching to ensure a safe environment for it's user.",
+      "salary": "80-$90k",
+      "location": "Nigeria",
+      "type": "Remote",
+      "title": "Node Tester",
+      "company": {
+        "name": "Martey Enterprises",
+        "description": "Trading Platform",
+        "contactPhone": "+2348137563250",
+        "contactEmail": "marteyenterprises@gmail.com"
+      }
     }
   ]
 }

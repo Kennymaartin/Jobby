@@ -1,9 +1,10 @@
 import { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import PropTypes from "prop-types";
 import { toast } from 'react-toastify'
+import { FaArrowLeft } from "react-icons/fa";
 
-const AddJobPage = ({addJobSubmit}) => {
+const AddJobPage = ({ addJobSubmit }) => {
     const [type, setType] = useState('');
     const [title, setTitle] = useState('');
     const [location, setLocation] = useState('');
@@ -41,6 +42,14 @@ const AddJobPage = ({addJobSubmit}) => {
     return (
         <>
             <section className="bg-indigo-50">
+                <div className="container m-auto py-6 px-6 flex justify-between items-stretch font-bold text-xl">
+                    <Link
+                        to="/jobs"
+                        className="text-indigo-500 hover:text-indigo-600 flex items-center"
+                    >
+                        <FaArrowLeft /> Back to Job Listings
+                    </Link>
+                </div>
                 <div className="container m-auto max-2xl py-24">
                     <div className="bg-white px-6 py-8 mb-4 shadow-md rounded-md border m-4 md:m-0">
                         <form action="" onSubmit={submitForm}>
@@ -64,7 +73,7 @@ const AddJobPage = ({addJobSubmit}) => {
                             </div>
                             <div className="mb-4">
                                 <label htmlFor="" className="block text-gray-700 font-bold mb-2">Job Listing Name</label>
-                                <input type="text" id="name" name="name" 
+                                <input type="text" id="name" name="name"
                                     className="border rounded w-full py-2 px-3 mb-2"
                                     value={title}
                                     onChange={(e) => setTitle(e.target.value)}
@@ -81,7 +90,7 @@ const AddJobPage = ({addJobSubmit}) => {
                                 <label htmlFor="salary" className="block text-gray-700 font-bold mb-2">Salary</label>
                                 <select name="" id=""
                                     value={salary}
-                                    onChange={(e) => setSalary (e.target.value)}
+                                    onChange={(e) => setSalary(e.target.value)}
                                 >
                                     {/* <option value="Under $50k">Choose</option> */}
                                     <option value="">Under $50k</option>
@@ -98,7 +107,7 @@ const AddJobPage = ({addJobSubmit}) => {
                             </div>
                             <div className="mb-4">
                                 <label htmlFor="" className="block text-gray-700 font-bold mb-2">Location</label>
-                                <input type="text" id="name" name="name" className="border rounded w-full py-2 px-3" 
+                                <input type="text" id="name" name="name" className="border rounded w-full py-2 px-3"
                                     value={location}
                                     onChange={(e) => setLocation(e.target.value)}
                                     placeholder="Company Location" required />
@@ -106,33 +115,33 @@ const AddJobPage = ({addJobSubmit}) => {
                             <h2 className="text-3xl text-center font-semi-bold mb-6">Company Info</h2>
                             <div className="mb-4">
                                 <label htmlFor="" className="block text-gray-700 font-bold mb-2">Company Name</label>
-                                <input type="text" className="border rounded w-full py-2 px-3" 
+                                <input type="text" className="border rounded w-full py-2 px-3"
                                     value={companyName}
                                     onChange={(e) => setCompanyName(e.target.value)}
-                                placeholder="Company Name" />
+                                    placeholder="Company Name" />
                             </div>
                             <div className="mb-4">
                                 <label htmlFor="type" className="font-bold block text-gray-700 mb-2">Company Description</label>
-                                <textarea className="border rounded w-full py-2 px-3" 
-                                value={companyDescription}
+                                <textarea className="border rounded w-full py-2 px-3"
+                                    value={companyDescription}
                                     onChange={(e) => setCompanyDescription(e.target.value)}
-                                placeholder="What will your company do?"></textarea>
+                                    placeholder="What will your company do?"></textarea>
                             </div>
                             <div className="mb-4">
                                 <label htmlFor="contact_email" className="block text-gray-700 font-bold mb-2">Company Email</label>
-                                <input type="text" className="border rounded w-full py-2 px-3" 
-                                value={contactEmail}
+                                <input type="text" className="border rounded w-full py-2 px-3"
+                                    value={contactEmail}
                                     onChange={(e) => setContactEmail(e.target.value)}
-                                placeholder="Email address for applicants" />
+                                    placeholder="Email address for applicants" />
                             </div>
                             <div className="mb-4">
                                 <label htmlFor="contact_phone" className="block text-gray-700 font-bold mb-2">Company Phone</label>
-                                <input type="tel" className="border rounded w-full py-2 px-3 mb-2" 
+                                <input type="tel" className="border rounded w-full py-2 px-3 mb-2"
                                     value={contactPhone}
                                     onChange={(e) => setContactPhone(e.target.value)}
-                                placeholder="Optional phone for applicants" />
+                                    placeholder="Optional phone for applicants" />
                             </div>
-                            <button className="w-full bg-indigo-600 rounded-full py-2">Add Job</button>
+                            <button className="w-full bg-indigo-600 hover:bg-indigo-500 rounded-full py-2">Add Job</button>
                         </form>
                     </div>
                 </div>
@@ -141,7 +150,7 @@ const AddJobPage = ({addJobSubmit}) => {
     );
 };
 
-AddJobPage.PropTypes={
+AddJobPage.PropTypes = {
     addJobSubmit: PropTypes.string,
 }
 
