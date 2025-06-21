@@ -9,8 +9,11 @@ const JobPage = ({ deleteJob }) => {
   const { id } = useParams();
   const job = useLoaderData();
 
-  const tweetText = encodeURIComponent(`Check out this job: ${job.title} in ${job.location}! #Jobs #Hiring`);
+  const tweetText = encodeURIComponent(
+    `🚀 New job opening: ${job.title} in ${job.location}! Looking for your next opportunity? This might be the perfect fit. 👇\n\nApply now: https://yourdomain.com/jobs/${job.id}`
+  );
   const tweetUrl = `https://twitter.com/intent/tweet?text=${tweetText}`;
+
 
 
   const onDeleteClick = (jobId) => {
