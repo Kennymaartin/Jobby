@@ -18,7 +18,7 @@ const Hero = ({
         <div className="mt-6">
           <Link
             to="/jobs"
-            className="px-6 py-3 bg-white text-indigo-700 font-semibold rounded-lg shadow hover:bg-gray-100 transition"
+            className="px-6 py-3 bg-white text-indigo-700 font-semibold rounded-lg shadow hover:bg-gray-200 transition"
           >
             Get Started
           </Link>
