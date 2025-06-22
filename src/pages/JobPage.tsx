@@ -10,7 +10,7 @@ const JobPage = ({ deleteJob }) => {
   const job = useLoaderData();
 
   const tweetText = encodeURIComponent(
-    `🚀 New job opening: ${job.title} in ${job.location}! Looking for your next opportunity? This might be the perfect fit. 👇\n\nApply now: https://yourdomain.com/jobs/${job.id}`
+    `🚀 New job opening: ${job.title} in ${job.location}! Looking for your next opportunity? This might be the perfect fit. 👇\n\nApply now: https://jobby-murex.vercel.app/jobs/${job.id}`
   );
   const tweetUrl = `https://twitter.com/intent/tweet?text=${tweetText}`;
 
