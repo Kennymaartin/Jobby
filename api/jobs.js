@@ -111,6 +111,20 @@ export default function handler(req, res) {
                 "contactPhone": "+2348137563250",
                 "contactEmail": "marteyenterprises@gmail.com"
             }
+        },
+            {
+            "id": "0625",
+            "description": "Launches Memecoins | Web3 Software Engineer.",
+            "salary": "120-$1500k",
+            "location": "Singapore",
+            "type": "Remote",
+            "title": "Web3 Solidity Dev",
+            "company": {
+                "name": "Martey Enterprises",
+                "description": "Decentralized Exchange",
+                "contactPhone": "+44-8175-63250",
+                "contactEmail": "kenechukwumartin4@gmail.com"
+            }
         }
     ];
     res.status(200).json(jobs);
