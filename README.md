@@ -10,6 +10,7 @@ A clean and responsive job listings platform built with **React**, **React Route
 - ✏️ Edit existing jobs
 - ❌ Delete job listings with confirmation
 - 📢 Share job openings on **X (Twitter)** with pre-filled tweet text
+- © Copy job URL and share manually
 - 🔎 View company information
 - 📍 Clean and responsive UI with Tailwind CSS
 - 🍞 Toast notifications for user actions
@@ -18,7 +19,7 @@ A clean and responsive job listings platform built with **React**, **React Route
 
 ## 📸 Preview
 
-![JobPage Screenshot](./screenshot.png)
+![JobbyPage Screenshot](./public/jobbypage.jpg)
 
 ---
 

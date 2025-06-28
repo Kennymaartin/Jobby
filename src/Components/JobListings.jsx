@@ -3,16 +3,18 @@ import JobListing from "./JobListing";
 import PropTypes from "prop-types";
 import Spinner from "./Spinner";
 
-const JobListings = ({ isHome = false }) => {
+const JobListings = ({ isHome = false, reloadFlag = 0 }) => {
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
+  
 
   useEffect(() => {
     const fetchJobs = async () => {
-      const apiUrl = isHome ? "/api/jobs?_limit=3" : "/api/jobs"
+      const apiUrl = "https://jsonblob.com/api/jsonBlob/1387835418564812800";
       try {
         const res = await fetch(apiUrl);
         const data = await res.json();
+        console.log(data)
         setJobs(data);
       } catch (error) {
         console.log("Error fetching data", error);
@@ -22,7 +24,10 @@ const JobListings = ({ isHome = false }) => {
     };
 
     fetchJobs();
-  }, []);
+  }, [reloadFlag]);
+
+  const displayedJobs = isHome ? jobs.slice(0, 3) : jobs;
+
   return (
     <>
       <section className="bg-blue-50 px-4 py-10 bg-gradient-to-r from-[#8942FE] to-[#4393FD]">
@@ -30,17 +35,17 @@ const JobListings = ({ isHome = false }) => {
           <h2 className="text-3xl font-bold text-[#E32123]  mb-6 text-center">
             {isHome ? "Recent Jobs" : "Browse Jobs"}
           </h2>
-            {loading ? (
-              <Spinner loading={loading}/>
-            ) : (
-              <>
+          {loading ? (
+            <Spinner loading={loading} />
+          ) : (
+            <>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {jobs.map((job) => (
+                {displayedJobs.map((job) => (
                   <JobListing key={job.id} job={job} />
                 ))}
-                </div>
-              </>
-            )}
+              </div>
+            </>
+          )}
         </div>
       </section>
     </>
@@ -48,7 +53,8 @@ const JobListings = ({ isHome = false }) => {
 };
 
 JobListings.propTypes = {
-  isHome: PropTypes.string,
+  isHome: PropTypes.bool,
+  reloadFlag: PropTypes.number
 };
 
 export default JobListings;

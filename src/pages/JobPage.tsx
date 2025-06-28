@@ -37,13 +37,25 @@ const JobPage = ({ deleteJob }) => {
           >
             <FaArrowLeft /> Back to Job Listings
           </Link>
-          <Link
-            to={tweetUrl}
-            target="_blank"
-            className="h-[36px] bg-black hover:bg-gray-800 text-white px-4 py-2 rounded-lg text-center text-sm"
-          >
-            Share On X
-          </Link>
+          <div>
+            <Link
+              to={tweetUrl}
+              target="_blank"
+              className="h-[36px] bg-black hover:bg-gray-800 text-white px-4 py-2 rounded-lg text-center text-sm"
+            >
+              Share On X
+            </Link>
+            <button
+              onClick={() => {
+                navigator.clipboard.writeText(window.location.href);
+                toast.info("Job link copied to clipboard");
+              }}
+              className="ml-2 text-sm text-blue-700 hover:underline hover:cursor-pointer"
+            >
+              Copy Link
+            </button>
+
+          </div>
         </div>
       </section>
       <section className="bg-indigo-50">
@@ -111,10 +123,20 @@ const JobPage = ({ deleteJob }) => {
   );
 };
 
+
 const jobLoader = async ({ params }) => {
-  const res = await fetch(`/api/jobs/${params.id}`);
-  const data = await res.json();
-  return data;
+  const res = await fetch("https://jsonblob.com/api/jsonBlob/1387835418564812800");
+  const jobs = await res.json();
+
+  const job = jobs.find((j) => j.id === params.id);
+
+  if (!job) {
+    throw new Response("Job not found", { status: 404 });
+  }
+
+  return job;
 };
+
+
 
 export { JobPage as default, jobLoader };
