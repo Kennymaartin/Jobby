@@ -25,6 +25,9 @@ const JobPage = ({ deleteJob }) => {
     toast.success('Job deleted successfully');
 
     navigate('/jobs');
+    window.location.reload();
+
+
   }
 
   return (
@@ -61,7 +64,7 @@ const JobPage = ({ deleteJob }) => {
       <section className="bg-indigo-50">
         <div className="container m-auto py-10 px-6">
           <div className="grid grid-cols-1 md:grid-cols-70/30 w-full gap-6">
-            <main>
+            <section>
               <div className="bg-white p-6 rounded-lg shadow-md text-center md:text-left">
                 <div className="text-gray-500 mb-4">{job.type}</div>
                 <h1 className="text-3xl font-bold mb-4">{job.title}</h1>
@@ -79,9 +82,10 @@ const JobPage = ({ deleteJob }) => {
                   Salary
                 </h3>
                 <p className="mb-4">{job.salary}</p>
+              <p>Visit website</p>
               </div>
-            </main>
-            <aside>
+            </section>
+            <section>
               <div className="bg-white p-6 rounded-lg shadow-md">
                 <h3 className="text-xl font-bold mb-6">Company Info</h3>
                 <h2 className="text-2xl">{job?.company?.name}</h2>
@@ -115,7 +119,7 @@ const JobPage = ({ deleteJob }) => {
                   Delete Job
                 </button>
               </div>
-            </aside>
+            </section>
           </div>
         </div>
       </section>

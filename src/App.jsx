@@ -4,7 +4,6 @@ import {
   createRoutesFromElements,
   RouterProvider,
 } from "react-router-dom";
-import { useState } from "react";
 import MainLayout from "./pages/MainLayout";
 import Homepage from "./pages/Homepage";
 import JobsPage from "./pages/JobsPage";
@@ -29,7 +28,6 @@ const App = () => {
   // };
 
 
-  const [reloadFlag, setReloadFlag] = useState(0);
 
   const BLOB_URL = "https://jsonblob.com/api/jsonBlob/1387835418564812800";
 
@@ -50,8 +48,6 @@ const App = () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updatedJobs)
     });
-    setReloadFlag(prev => prev + 1);
-
     return;
   };
 
@@ -78,8 +74,6 @@ const App = () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updatedJobs)
     });
-    setReloadFlag(prev => prev + 1);
-
     return;
   };
 
@@ -112,8 +106,6 @@ const App = () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updatedJobs)
     });
-    setReloadFlag(prev => prev + 1);
-
     return;
   };
 
@@ -123,7 +115,7 @@ const App = () => {
     createRoutesFromElements(
       <Route path="/" element={<MainLayout />}>
         <Route index element={<Homepage />} />
-        <Route path='/jobs' element={<JobsPage reloadFlag={reloadFlag}/>} />
+        <Route path='/jobs' element={<JobsPage/>} />
         <Route path='/add-jobs' element={<AddJobPage addJobSubmit={addJob} />} />
         <Route path='/edit-jobs/:id' element={<EditJob updateJobSubmit={updateJob} />} loader={jobLoader} />
         <Route path='/jobs/:id' element={<JobPage deleteJob={deleteJob} />} loader={jobLoader} errorElement={<NotFound />} />

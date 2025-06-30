@@ -37,6 +37,7 @@ const AddJobPage = ({ addJobSubmit }) => {
         toast.success('Job added successfully')
 
         return navigate('/jobs');
+        
     }
 
     return (
